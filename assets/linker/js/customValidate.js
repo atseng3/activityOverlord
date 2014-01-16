@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// http://docs.jquery.com/Plugins/Validation
 	// http://docs.jquery.com/Plugins/Validation/validate#toptions
 	
-	$('.form-signin').validate({
+	$('#signup-form').validate({
 		rules: {
 			name: {
 				required: true
