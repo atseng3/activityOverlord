@@ -44,8 +44,23 @@ module.exports = {
 			
 			// After successfully creating the user
 			// redirect to the show action
-			res.json(user);
+			res.redirect('/user/show/' + user.id);
+			
+			// respond as json:
+			// res.json(user);
+			
+			// clearing req.session for flash msg
 			// req.session.flash = {};
+		});
+	},
+	
+	show: function(req, res, next) {
+		User.findOne(req.param('id'), function foundUser(err, user) {
+			if (err) return next(err);
+			if (!user) return next();
+			res.view({
+				user: user
+			});
 		});
 	},
 
