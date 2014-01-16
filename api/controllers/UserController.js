@@ -15,12 +15,14 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+
 module.exports = {
     
 	'new': function(req, res) {
-		res.locals.flash = _.clone(req.session.flash);
+		// setting res.locals.flash and clearing req.session.flash is done in /policies/flash.js
+		// res.locals.flash = _.clone(req.session.flash);
 		res.view();
-		req.session.flash = {};
+		// req.session.flash = {};
 	},
 	
 	'create': function(req, res) {
@@ -43,7 +45,7 @@ module.exports = {
 			// After successfully creating the user
 			// redirect to the show action
 			res.json(user);
-			req.session.flash = {};
+			// req.session.flash = {};
 		});
 	},
 
