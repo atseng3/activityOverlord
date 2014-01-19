@@ -65,9 +65,10 @@ module.exports = {
 	},
 	
 	index: function(req, res, next) {
-		
-		console.log(new Date());
-		console.log(req.session.authenticated);
+
+		// testing console.log for session expiration
+		// console.log(new Date());
+		// console.log(req.session.authenticated);
 		
 		// Get an array of all users in the User collection(e.g. table)
 		User.find(function foundUsers(err, users) {
