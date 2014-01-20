@@ -29,7 +29,7 @@ module.exports = {
 		},
 		
 		admin: {
-			trype: 'boolean',
+			type: 'boolean',
 			defaultsTo: false
 		},
 		
