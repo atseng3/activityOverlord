@@ -2,6 +2,7 @@
 	<h3>User Administration</h3>
 	<table class="table">
 		<tr>
+			<th></th>
 			<th>ID</th>
 			<th>Name</th>			
 			<th>Title</th>
@@ -9,11 +10,15 @@
 			<th></th>			
 			<th></th>			
 			<th></th>			
-			<th></th>			
 		</tr>
 		
 		<% _.each(users, function(user) { %>
 			<tr data-id="<%= user.id %>" data-model="user">
+				<% if (user.online) { %>
+					<td><img src="/images/icon-online.png"></td>
+				<% } else { %>
+					<td><img src="/images/icon-offline.png"></td>
+				<% } %>	
 				<td><%= user.id %></td>
 				<td><%= user.name %></td>
 				<td><%= user.title %></td>

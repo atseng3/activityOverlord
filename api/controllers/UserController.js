@@ -56,9 +56,15 @@ module.exports = {
 			req.session.authenticated = true;
 			req.session.User = user;
 			
-			// After successfully creating the user
-			// redirect to the show action
-			res.redirect('/user/show/' + user.id);
+			// Change status to online
+			user.online = true;
+			user.save(function(err, user) {
+				if (err) return next(err);
+				
+				// After successfully creating the user
+				// redirect to the show action
+				res.redirect('/user/show/' + user.id);
+			});
 			
 			// respond as json:
 			// res.json(user);
